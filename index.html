@@ -125,7 +125,7 @@
         .drop-box{aspect-ratio:1/1;border:2.5px solid rgba(255,255,255,.5);border-radius:12px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.08);position:relative;overflow:hidden}
         .box-digit{color:rgba(255,255,255,.2);font-family:'Nunito',sans-serif;font-size:2.8rem;font-weight:900}
         .ignition-section{background:#FDE68A;margin:8px 10px;padding:10px;border-radius:18px;height:95px;display:flex;align-items:center;border:3px solid #F59E0B;position:relative}
-        .switch-lock{width:85px;height:85px;background:url('Assets/Switch.png') no-repeat center;background-size:contain;position:relative;display:flex;align-items:center;justify-content:center}
+        .switch-lock{width:85px;height:85px;background:url('images/Switch.png') no-repeat center;background-size:contain;position:relative;display:flex;align-items:center;justify-content:center}
         .key-on-switch{position:absolute;transform:rotate(90deg);width:65px;z-index:10}.key-start-pos{position:absolute;right:20px;width:80px;height:80px;z-index:100;touch-action:none}
         .items-pool{background:#FFF;border-radius:40px 40px 0 0;flex-grow:1;position:relative;margin-top:10px;padding:10px 15px;touch-action:none;display:flex;flex-wrap:wrap;justify-content:center;gap:10px;overflow:hidden;height:240px}
         .drag-item{width:90px;height:90px;position:static;border:0;border-radius:10px;box-shadow:0 6px 15px rgba(0,0,0,.15);touch-action:none;transition: transform 0.1s ease-out;flex-shrink:0}
@@ -163,7 +163,7 @@
         /* Final Certificate Modal - Exact Pixel Alignment */
         #certificate-modal { display:none; position:fixed; inset:0; background:#f0f0f0; z-index:11000; overflow-y:auto; }
         .cert-viewport { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 20px 0; }
-        .cert-container { position:relative; width:1000px; height:667px; background:url('Assets/certificate.jpg'); background-size:cover; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transform: scale(0.35); transform-origin: top center; margin-bottom: -400px; }
+        .cert-container { position:relative; width:1000px; height:667px; background:url('images/certificate.jpg'); background-size:cover; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transform: scale(0.35); transform-origin: top center; margin-bottom: -400px; }
         @media (min-width: 500px) { .cert-container { transform: scale(0.45); margin-bottom: -350px; } }
         .cert-name { position:absolute; top:260px; left:0; width:100%; text-align:center; font-family: 'Nunito', sans-serif; font-weight:900; font-size:48px; color:#1a2e5a; text-transform: uppercase; }
         .cert-id { position:absolute; top:480px; left:280px; width:120px; height:45px; display:flex; align-items:center; justify-content:center; font-weight:950; font-size:24px; color:#fff; font-family:sans-serif; }
@@ -175,7 +175,7 @@
 <body x-data="mainSystem()" x-init="initApp()">
 
 <div id="app-preloader">
-    <img src="Assets/1000372168.png" class="loader-logo">
+    <img src="images/1000372168.png" class="loader-logo">
     <div class="car-track">
         <div class="moving-car" id="loader-car">🏎️</div>
     </div>
@@ -194,8 +194,8 @@
 </div>
 
 <div id="dashboard-page">
-    <div class="slider-box" onclick="handleAdminClick()"><div class="slider-wrapper" id="bannerSlider"><img src="Assets/baner1.png"><img src="Assets/baner2.png"><img src="Assets/baner3.png"></div></div>
-    <div class="dashboard-content"><img src="Assets/dashboard.jpg"><div class="tap-to-start-overlay" onclick="showLevels()"></div>
+    <div class="slider-box" onclick="handleAdminClick()"><div class="slider-wrapper" id="bannerSlider"><img src="images/baner1.png"><img src="images/baner2.png"><img src="images/baner3.png"></div></div>
+    <div class="dashboard-content"><img src="images/dashboard.jpg"><div class="tap-to-start-overlay" onclick="showLevels()"></div>
         <div class="team-links"><a href="https://wa.me/923088128361" target="_blank"></a><a href="https://wa.me/923275588692" target="_blank"></a><a href="https://wa.me/923259979919" target="_blank"></a></div>
         <div class="social-links-container"><a href="https://www.facebook.com/share/v/14dkSWFwMQh/" target="_blank"></a><a href="https://wa.me/923400403336" target="_blank"></a><a href="https://www.tiktok.com/@aaspassdc?_r=1&_t=ZS-94PAUQDF21g" target="_blank"></a><a href="https://youtube.com/@aaspassdrivingschool2375?si=mY7zpzWv2zNSJUyO" target="_blank"></a><a href="https://www.instagram.com/aaspassdriving?igsh=amVocWxmb2d5ZHVk" target="_blank"></a></div>
     </div>
@@ -272,7 +272,7 @@
         <div id="unlocker" x-show="!ready1" @click="ready1 = true; speak('پہلے سیٹ برابر کریں، اس طرح ڈریگ کریں'); showPuzzle1Guide(); "><div class="text-center"><div class="text-6xl mb-4">🚗</div><div class="bg-[#0D1B3E] text-white px-10 py-5 rounded-full font-black text-2xl shadow-2xl">START MISSION</div></div></div>
         <div class="app-container-1" x-show="ready1" x-cloak>
             <div x-show="currentMode1 === 'before'" id="screen-before" class="flex flex-col h-full"><div class="header-banner">L1A: Starting <span class="highlight-text">4 Steps before starting</span></div><div class="grid-layout"><template x-for="(slot, i) in slots1" :key="i"><div class="target-box" :id="'p1-slot-'+i" :class="(slots1.findIndex(s => !s.img) === i) ? 'blink-target' : ''"><img x-show="slot.img" :src="slot.img" class="w-full h-full object-cover rounded-lg"><div x-show="slot.img && slot.isCorrect" class="absolute inset-0 bg-green-500/30 flex items-center justify-center text-white text-2xl font-bold">✔</div><span x-show="!slot.img" x-text="i + 1" style="color:rgba(255,255,255,.6);font-size:28px;font-weight:800;"></span></div></template></div><div class="curve-footer"><div class="grid grid-cols-2 gap-4"><template x-for="item in shuffledItems1" :key="item.id"><div style="width:160px;height:160px;position:relative;"><div :id="'p1-item-'+item.id" x-show="!item.used" class="draggable-item" @touchstart="startDrag1($event, item)" @touchmove="moveDrag1($event)" @touchend="endDrag1($event)"><img :src="item.url" class="w-full h-full object-cover" draggable="false"></div><div x-show="item.used" class="w-full h-full border-2 border-dashed rounded-[22px] flex items-center justify-center" :class="item.lastDropCorrect ? 'bg-green-50 border-green-200' : 'bg-red-50 border-red-200'"><span class="text-6xl font-bold" :class="item.lastDropCorrect ? 'text-green-500' : 'text-red-500'" x-text="item.lastDropCorrect ? '✔' : '✖'"></span></div></div></template></div></div></div>
-            <div x-show="currentMode1 === 'ignition'" class="flex flex-col h-full"><div class="header-wrapper"><div class="flex items-center gap-1"><span class="num-red">4</span><span class="step-txt">Steps</span><span class="arrow-box">➜</span></div><div class="starting-text">Starting</div><div class="flex items-center gap-1"><span class="arrow-box">➜</span><span class="num-red">4</span><span class="step-txt">Steps</span></div></div><div class="flex-1 flex justify-center items-center relative"><div class="switch-target" :class="isCranking1 ? 'engine-vibrate' : !keyStuck1 ? 'blink-target' : ''" id="dropZoneIgnition"><img src="Assets/Switch.png" class="w-full h-full object-cover"></div><img x-show="keyStuck1" src="Assets/key.png" class="absolute w-[100px] h-[100px] z-50 rotate-[-45deg]" :class="isCranking1 ? 'engine-vibrate' : ''"></div><div class="bg-white h-[38%] rounded-t-[45px] flex flex-col items-center p-6"><p style="color:#C0C0C0;font-size:12px;font-weight:800;margin-bottom:15px;text-transform:uppercase;">Insert Key to Start</p><div x-show="!keyStuck1" class="w-[130px] h-[130px] relative" @touchstart="startDragKey1($event)" @touchmove="moveDragKey1($event)" @touchend="endDragKey1($event)"><img src="Assets/key.png" class="w-full h-full object-contain" draggable="false"></div></div></div>
+            <div x-show="currentMode1 === 'ignition'" class="flex flex-col h-full"><div class="header-wrapper"><div class="flex items-center gap-1"><span class="num-red">4</span><span class="step-txt">Steps</span><span class="arrow-box">➜</span></div><div class="starting-text">Starting</div><div class="flex items-center gap-1"><span class="arrow-box">➜</span><span class="num-red">4</span><span class="step-txt">Steps</span></div></div><div class="flex-1 flex justify-center items-center relative"><div class="switch-target" :class="isCranking1 ? 'engine-vibrate' : !keyStuck1 ? 'blink-target' : ''" id="dropZoneIgnition"><img src="images/Switch.png" class="w-full h-full object-cover"></div><img x-show="keyStuck1" src="images/key.png" class="absolute w-[100px] h-[100px] z-50 rotate-[-45deg]" :class="isCranking1 ? 'engine-vibrate' : ''"></div><div class="bg-white h-[38%] rounded-t-[45px] flex flex-col items-center p-6"><p style="color:#C0C0C0;font-size:12px;font-weight:800;margin-bottom:15px;text-transform:uppercase;">Insert Key to Start</p><div x-show="!keyStuck1" class="w-[130px] h-[130px] relative" @touchstart="startDragKey1($event)" @touchmove="moveDragKey1($event)" @touchend="endDragKey1($event)"><img src="images/key.png" class="w-full h-full object-contain" draggable="false"></div></div></div>
             <div x-show="currentMode1 === 'after'" id="screen-after" class="flex flex-col h-full"><div class="header-wrapper"><div class="flex items-center gap-1"><span class="num-red">4</span><span class="step-txt">Steps</span><span class="arrow-box">➜</span></div><div class="starting-text-dark">Starting</div><div class="right-section"><span class="arrow-box">➜</span><span class="num-red">4</span><span class="step-txt">Steps</span></div></div><div class="grid-layout"><template x-for="(slot, i) in slots1" :key="i"><div class="target-box" :class="(slots1.findIndex(s => !s.img) === i) ? 'blink-target' : ''"><img x-show="slot.img" :src="slot.img" class="w-full h-full object-cover rounded-lg"><div x-show="slot.img && slot.isCorrect" class="absolute inset-0 bg-green-500/30 flex items-center justify-center text-white text-2xl font-bold">✔</div><span x-show="!slot.img" x-text="i + 1" style="color:rgba(255,255,255,.6);font-size:28px;font-weight:800;"></span></div></template></div><div class="curve-footer"><div class="grid grid-cols-2 gap-4"><template x-for="item in shuffledItems1" :key="item.id"><div style="width:160px;height:160px;position:relative;"><div x-show="!item.used" class="draggable-item" @touchstart="startDrag1($event, item)" @touchmove="moveDrag1($event)" @touchend="endDrag1($event)"><img :src="item.url" class="w-full h-full object-cover" draggable="false"></div><div x-show="item.used" class="w-full h-full border-2 border-dashed rounded-[22px] flex items-center justify-center" :class="item.lastDropCorrect ? 'bg-green-50 border-green-200' : 'bg-red-50 border-red-200'"><span class="text-6xl font-bold" :class="item.lastDropCorrect ? 'text-green-500' : 'text-red-500'" x-text="item.lastDropCorrect ? '✔' : '✖'"></span></div></div></template></div></div></div>
         </div>
     </div>
@@ -284,12 +284,12 @@
                 <div class="flex flex-col items-center justify-center w-1/4">
                     <div class="drop-box" id="b-engine" style="width:70px;height:70px;">
                         <span x-show="!isStarted2" class="text-[10px] font-black text-black text-center">START ENGINE</span>
-                        <img x-show="isStarted2" src="Assets/Switch.png" class="placed-gif">
+                        <img x-show="isStarted2" src="images/Switch.png" class="placed-gif">
                         <div x-show="isStarted2" class="status-mark-svg"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z" fill="#22C55E"/></svg></div>
                     </div>
                 </div>
-                <div class="switch-lock flex-1" id="lock-target"><img x-show="isStarted2" src="Assets/key.png" class="key-on-switch"></div>
-                <img x-show="!isStarted2" src="Assets/key.png" class="key-start-pos" id="drag-key" @touchstart="pick2($event, 'key')" @touchmove="move2($event)" @touchend="drop2($event)">
+                <div class="switch-lock flex-1" id="lock-target"><img x-show="isStarted2" src="images/key.png" class="key-on-switch"></div>
+                <img x-show="!isStarted2" src="images/key.png" class="key-start-pos" id="drag-key" @touchstart="pick2($event, 'key')" @touchmove="move2($event)" @touchend="drop2($event)">
             </div>
             <div class="mission-grid"><template x-for="n in [4,5,6,7]" :key="n"><div class="drop-box" :id="'b-'+n"><span x-show="!placed2[n]" class="box-digit" x-text="n-3"></span><img x-show="placed2[n]" :src="placed2[n]" class="placed-gif"><div x-show="placed2[n]" class="status-mark-svg"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z" fill="#22C55E"/></svg></div><div x-show="showError2 === n" class="error-overlay">❌</div></div></template></div>
             <div class="items-pool" id="pool"><template x-for="item in items2" :key="item.id"><img x-show="!item.done" :src="item.url" class="drag-item" :style="`z-index:${item.id};`" @touchstart="pick2($event, item)" @touchmove="move2($event)" @touchend="drop2($event)"></template></div>
@@ -317,18 +317,18 @@
              <div class="flex flex-col items-center justify-center w-1/4">
                 <div class="drop-box" style="width:70px;height:70px;">
                     <span x-show="lessonStep2 < 4 || (lessonStep2 === 4 && !engineOn2)" class="text-[10px] font-black text-black text-center">START ENGINE</span>
-                    <img x-show="engineOn2" src="Assets/Switch.png" class="placed-gif">
+                    <img x-show="engineOn2" src="images/Switch.png" class="placed-gif">
                     <div x-show="engineOn2" class="status-mark-svg"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z" fill="#22C55E"/></svg></div>
                 </div>
             </div>
-            <div class="switch-lock flex-1" id="p2-lock-target"><img x-show="engineOn2" src="Assets/key.png" class="key-on-switch"></div>
-            <img x-show="lessonStep2 === 4 && !engineOn2" src="Assets/key.png" class="key-start-pos" style="top: 80px; right: 20px;" id="p2-drag-key" @touchstart="pickP2Key($event)" @touchmove="moveP2Key($event)" @touchend="dropP2Key($event)">
+            <div class="switch-lock flex-1" id="p2-lock-target"><img x-show="engineOn2" src="images/key.png" class="key-on-switch"></div>
+            <img x-show="lessonStep2 === 4 && !engineOn2" src="images/key.png" class="key-start-pos" style="top: 80px; right: 20px;" id="p2-drag-key" @touchstart="pickP2Key($event)" @touchmove="moveP2Key($event)" @touchend="dropP2Key($event)">
         </div>
 
         <div class="mission-grid px-4 mb-2"><template x-for="n in [4,5,6,7]" :key="n"><div class="drop-box flex items-center justify-center" :id="'p2-box-'+n" :class="boxContent2[n] && !errorInBox2[n] ? 'border-green-500' : ''"><span x-show="!boxContent2[n]" class="box-digit" x-text="n-3"></span><img x-show="boxContent2[n]" :src="boxContent2[n]" class="w-full h-full object-cover rounded-xl" style="object-fit: fill;" :class="errorInBox2[n] ? 'grayscale' : ''"><div x-show="boxContent2[n] && !errorInBox2[n]" class="status-mark-svg"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z" fill="#22C55E"/></svg></div><div x-show="errorInBox2[n]" class="error-overlay">❌</div></div></template></div>
 
         <div class="interior-map-2" id="map-container-2" @click="handleMapClick2($event)">
-            <img src="Assets/1000372168.png" class="w-full h-auto block" id="mainMap2">
+            <img src="images/1000372168.png" class="w-full h-auto block" id="mainMap2">
             <div @click.stop="handleAction2(0)" id="hp-0" class="hotspot-2" style="top:73%;left:45%;width:65px;height:65px;"></div>
             <div @click.stop="handleAction2(1)" class="hotspot-2" style="top:65%;left:27%;width:65px;height:65px;"></div>
             <div @click.stop="handleAction2(2)" class="hotspot-2" style="top:73%;left:11.5%;width:65px;height:65px;"></div>
@@ -341,68 +341,69 @@
         <div class="sticky bottom-0 bg-white p-4 flex justify-between items-center z-[1000]"><div class="text-xs font-black text-gray-800 uppercase" x-text="statusMsg2"></div><button @click="resetOnlyPhase2()" class="bg-red-600 text-white px-5 py-2 rounded-full text-[10px] font-black">RESET ROUND</button></div>
     </div>
 </div>
-<audio id="sndDrop" src="Voices/drop.mp3"></audio>
-<audio id="sndWin" src="Voices/win.mp3"></audio>
-<audio id="sndFail" src="Voices/fail.mp3"></audio>
-<audio id="carStartSnd" src="Voices/start-engine.mp3"></audio>
-<audio id="dragSnd" src="Voices/drag.mp3"></audio>
-<audio id="passSnd" src="Voices/pass.mp3"></audio>
-<audio id="failSnd" src="Voices/fail.mp3"></audio>
-<audio id="engineSnd" src="Voices/start-engine.mp3"></audio>
-<audio id="victorySnd" src="Voices/victory.mp3"></audio>
-<audio id="wheelTick" src="Voices/tick.mp3"></audio>
-<audio id="sound-correct" src="Voices/correct.mp3"></audio>
-<audio id="sound-wrong" src="Voices/wrong.mp3"></audio>
+<audio id="sndDrop" src="https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3"></audio>
+<audio id="sndWin" src="https://assets.mixkit.co/active_storage/sfx/2019/2019-preview.mp3"></audio>
+<audio id="sndFail" src="https://assets.mixkit.co/active_storage/sfx/2572/2572-preview.mp3"></audio>
+<audio id="carStartSnd" src="voices/start-engine.mp3"></audio>
+<audio id="dragSnd" src="https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3"></audio>
+<audio id="passSnd" src="https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3"></audio>
+<audio id="failSnd" src="https://assets.mixkit.co/active_storage/sfx/2572/2572-preview.mp3"></audio>
+<audio id="engineSnd" src="voices/start-engine.mp3"></audio>
+<audio id="victorySnd" src="https://assets.mixkit.co/active_storage/sfx/2019/2019-preview.mp3"></audio>
+<audio id="wheelTick" src="https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3"></audio>
+<audio id="sound-correct" src="https://assets.mixkit.co/active_storage/sfx/3005/3005-preview.mp3"></audio>
+<audio id="sound-wrong" src="https://assets.mixkit.co/active_storage/sfx/3003/3003-preview.mp3"></audio>
 
 <script>
-    // 🔗 VIDEO LINK REPOSITORY (Videos folder used)
+    // 🔗 VIDEO LINK REPOSITORY (Paste your links here)
     const levelVideoLinks = {
-        'L1A': 'Videos/l1a.starting.mp4',
-        'L1B': 'Videos/l1b.moving.mp4',
-        'L1C': 'Videos/l1c.steering.mp4',
-        'L1D': 'Videos/l1d.stopping.mp4',
-        'L2A': 'Videos/l2a.powerformula.mp4',
-        'L2B': 'Videos/l2b.basiccontrol.mp4',
-        'L2C': 'Videos/l2c.reversturn.mp4',
-        'L3A': 'Videos/l3a.2ndgear.mp4',
-        'L3B': 'Videos/l3b.gearformula.mp4',
-        'L3C': 'Videos/l3c.fullturn.mp4',
-        'L4A': 'Videos/l4a.3rdgear.mp4',
-        'L4B': 'Videos/l4b.gearmotion.mp4',
-        'L5A': 'Videos/l5a.4thgear.mp4',
-        'L5B': 'Videos/l5b.overtake.mp4',
-        'L6A': 'Videos/l6a.uphillmove.mp4',
-        'L6B': 'Videos/l6b.lparking.mp4',
-        'L7A': 'Videos/l7a.roadsigns.mp4',
-        'L7B': 'Videos/l7b.trafficrules.mp4'
+        'L1A': 'videos/l1a.starting.mp4',
+        'L1B': 'videos/l1b.moving.mp4',
+        'L1C': 'videos/l1c.steering.mp4',
+        'L1D': 'videos/l1d.stoping.mp4',
+        'L2A': 'videos/l2a.powerformula.mp4',
+        'L2B': 'videos/l2b.basiccontrol.mp4',
+        'L2C': 'videos/l2c.reversturn.mp4',
+        'L3A': 'videos/l3a.2ndgair.mp4',
+        'L3B': 'videos/l3b.gairformula.mp4',
+        'L3C': 'videos/l3c.fullturn.mp4',
+        'L4A': 'videos/l4a.3rdgair.mp4',
+        'L4B': 'videos/l4b.gairmotion.mp4',
+        'L5A': 'videos/l5a.4thgair.mp4',
+        'L5B': 'videos/l5b.overtake.mp4',
+        'L6A': 'videos/l6a.uphillmove.mp4',
+        'L6B': 'videos/l6b.lparking.mp4',
+        'L7A': 'videos/l7a.roadsigns.mp4',
+        'L7B': 'videos/l7b.trafficrules.mp4'
     };
 
-    // 🔗 TEST DATA REPOSITORY (Voices and Icons folder used)
+    // 🔗 TEST DATA REPOSITORY (Paste your Test Code/Questions here)
     const allLevelTests = {
         "L1B": [
-            { id: 1, q: "گاڑی روانہ کرنے کے لیے پہلا کام کون سا ہے؟", options: ["ایکسیلیٹر دبانا", "کلچ چھوڑنا", "ایکسیلیٹر چھوڑنا"], correct: 0, audio: "Voices/q1.m4a", img: "Icons/l1bq1.jpg", timings: { qEnd: 4, o1End: 6.5, o2End: 9 } },
-            { id: 2, q: "ایکسیلیٹر پیڈل پر پاؤں کیسے رکھیں گے؟", options: ["سیدھا پاؤں", "کراس (ٹیڑھا)"], correct: 1, audio: "Voices/q2.m4a", img: "Icons/l1bq2.jpg", timings: { qEnd: 3.5, o1End: 5.5, o2End: 8 } },
-            { id: 3, q: "گاڑی رواں کرنے کے لیے ایکسیلیٹر کتنا دبائیں گے؟", options: ["بہت زیادہ", "بہت کم", "مناسب اور برابر"], correct: 2, audio: "Voices/q3.m4a", img: "Icons/l1bq3.jpg", timings: { qEnd: 4, o1End: 6, o2End: 8.5 } },
-            { id: 4, q: "جب ہم برابر ایکسیلیٹر دبا لیں، تو اس کے بعد کیا کریں گے؟", options: ["ایکسیلیٹر مزید دبائیں گے", "اسی پوزیشن پر رکھیں گے", "ایکسیلیٹر چھوڑ دیں گے"], correct: 1, audio: "Voices/q4.m4a", img: "Icons/l1bq4.jpg", timings: { qEnd: 4.5, o1End: 7, o2End: 9.5 } },
-            { id: 5, q: "ایکسیلیٹر برابر کرنے کے بعد اگلا قدم کیا ہے؟", options: ["کلچ چھوڑیں گے", "بریک دبائیں گے", "نیوٹرل کریں گے"], correct: 0, audio: "Voices/q5.m4a", img: "Icons/l1bq5.jpg", timings: { qEnd: 4, o1End: 6.5, o2End: 9 } },
-            { id: 6, q: "کلچ کو چھوڑنے کا طریقہ کیا ہونا چاہیے؟", options: ["ایک دم سے", "آرام سے", "مکمل چھوڑیں"], correct: 1, audio: "Voices/q6.m4a", img: "Icons/l1bq6.jpg", timings: { qEnd: 4, o1End: 6, o2End: 8.5 } },
-            { id: 7, q: "کلچ چھوڑتے وقت پاؤں ko پیچھے کیسے کریں گے؟", options: ["انگوٹھا اوپر کریں گے", "ایڑی کو پیچھے لے کر آئیں گے"], correct: 1, audio: "Voices/q7.m4a", img: "Icons/l1bq7.jpg", timings: { qEnd: 4.5, o1End: 7, o2End: 9.5 } },
-            { id: 8, q: "کلچ کو کب تک (کتنی دیر) چھوڑنا جاری رکھیں گے؟", options: ["جب گاڑی روانہ ہو جائے", "جب گاڑی بہت تیز ہو جائے", "جب انجن بند ہو جائے"], correct: 0, audio: "Voices/q8.m4a", img: "Icons/l1bq8.jpg", timings: { qEnd: 4.5, o1End: 7, o2End: 9.5 } },
-            { id: 9, q: "جب گاڑی اپنی جگہ سے روانہ ہونے لگے تو اسی وقت کیا کریں کلچ کے ساتھ؟", options: ["کلچ اور نہ چھوڑیں", "اور چھوڑیں", "واپس دبائیں"], correct: 0, audio: "Voices/q9.m4a", img: "Icons/l1bq9.jpg", timings: { qEnd: 5, o1End: 7.5, o2End: 10 } },
-            { id: 10, q: "گاڑی 10 سے 15 فٹ آگے چلی جائے تو پہلا کام کیا کریں گے؟", options: ["کلچ دوبارہ دبائیں گے", "ایکسیلیٹر کم کریں گے", "تیز ریس دیں گے"], correct: 1, audio: "Voices/q10.m4a", img: "Icons/l1bq10.jpg", timings: { qEnd: 5, o1End: 7.5, o2End: 10 } },
-            { id: 11, q: "ریس کم کرنے کے بعد دوسرا کام کیا کریں؟", options: ["کلچ چھوڑیں", "کلچ دبائیں", "کلچ اسی طرح پکڑیں"], correct: 0, audio: "Voices/q11.m4a", img: "Icons/l1bq11.jpg", timings: { qEnd: 5, o1End: 7.5, o2End: 10 } },
-            { id: 12, q: "کلچ مکمل چھوڑنے کے بعد بایاں پاؤں کہاں رکھیں؟", options: ["کلچ کے اوپر ہلکا سا رکھیں", "پیچھے فرش پر رکھیں", "بریک کے اوپر رکھیں"], correct: 1, audio: "Voices/q12.m4a", img: "Icons/l1bq12.jpg", timings: { qEnd: 4.5, o1End: 7, o2End: 9.5 } }
+            { id: 1, q: "گاڑی روانہ کرنے کے لیے پہلا کام کون سا ہے؟", options: ["ایکسیلیٹر دبانا", "کلچ چھوڑنا", "ایکسیلیٹر چھوڑنا"], correct: 0, audio: "voices/q1.m4a", img: "images/l1bq1.jpg", timings: { qEnd: 4, o1End: 6.5, o2End: 9 } },
+            { id: 2, q: "ایکسیلیٹر پیڈل پر پاؤں کیسے رکھیں گے؟", options: ["سیدھا پاؤں", "کراس (ٹیڑھا)"], correct: 1, audio: "voices/q2.m4a", img: "images/l1bq2.jpg", timings: { qEnd: 3.5, o1End: 5.5, o2End: 8 } },
+            { id: 3, q: "گاڑی رواں کرنے کے لیے ایکسیلیٹر کتنا دبائیں گے؟", options: ["بہت زیادہ", "بہت کم", "مناسب اور برابر"], correct: 2, audio: "voices/q3.m4a", img: "images/l1bq3.jpg", timings: { qEnd: 4, o1End: 6, o2End: 8.5 } },
+            { id: 4, q: "جب ہم برابر ایکسیلیٹر دبا لیں، تو اس کے بعد کیا کریں گے؟", options: ["ایکسیلیٹر مزید دبائیں گے", "اسی پوزیشن پر رکھیں گے", "ایکسیلیٹر چھوڑ دیں گے"], correct: 1, audio: "voices/q4.m4a", img: "images/l1bq4.jpg", timings: { qEnd: 4.5, o1End: 7, o2End: 9.5 } },
+            { id: 5, q: "ایکسیلیٹر برابر کرنے کے بعد اگلا قدم کیا ہے؟", options: ["کلچ چھوڑیں گے", "بریک دبائیں گے", "نیوٹرل کریں گے"], correct: 0, audio: "voices/q5.m4a", img: "images/l1bq5.jpg", timings: { qEnd: 4, o1End: 6.5, o2End: 9 } },
+            { id: 6, q: "کلچ کو چھوڑنے کا طریقہ کیا ہونا چاہیے؟", options: ["ایک دم سے", "آرام سے", "مکمل چھوڑیں"], correct: 1, audio: "voices/q6.m4a", img: "images/l1bq6.jpg", timings: { qEnd: 4, o1End: 6, o2End: 8.5 } },
+            { id: 7, q: "کلچ چھوڑتے وقت پاؤں ko پیچھے کیسے کریں گے؟", options: ["انگوٹھا اوپر کریں گے", "ایڑی کو پیچھے لے کر آئیں گے"], correct: 1, audio: "voices/q7.m4a", img: "images/l1bq7.jpg", timings: { qEnd: 4.5, o1End: 7, o2End: 9.5 } },
+            { id: 8, q: "کلچ کو کب تک (کتنی دیر) چھوڑنا جاری رکھیں گے؟", options: ["جب گاڑی روانہ ہو جائے", "جب گاڑی بہت تیز ہو جائے", "جب انجن بند ہو جائے"], correct: 0, audio: "voices/q8.m4a", img: "images/l1bq8.jpg", timings: { qEnd: 4.5, o1End: 7, o2End: 9.5 } },
+            { id: 9, q: "جب گاڑی اپنی جگہ سے روانہ ہونے لگے تو اسی وقت کیا کریں کلچ کے ساتھ؟", options: ["کلچ اور نہ چھوڑیں", "اور چھوڑیں", "واپس دبائیں"], correct: 0, audio: "voices/q9.m4a", img: "images/l1bq9.jpg", timings: { qEnd: 5, o1End: 7.5, o2End: 10 } },
+            { id: 10, q: "گاڑی 10 سے 15 فٹ آگے چلی جائے تو پہلا کام کیا کریں گے؟", options: ["کلچ دوبارہ دبائیں گے", "ایکسیلیٹر کم کریں گے", "تیز ریس دیں گے"], correct: 1, audio: "voices/q10.m4a", img: "images/l1bq10.jpg", timings: { qEnd: 5, o1End: 7.5, o2End: 10 } },
+            { id: 11, q: "ریس کم کرنے کے بعد دوسرا کام کیا کریں؟", options: ["کلچ چھوڑیں", "کلچ دبائیں", "کلچ اسی طرح پکڑیں"], correct: 0, audio: "voices/q11.m4a", img: "images/l1bq11.jpg", timings: { qEnd: 5, o1End: 7.5, o2End: 10 } },
+            { id: 12, q: "کلچ مکمل چھوڑنے کے بعد بایاں پاؤں کہاں رکھیں؟", options: ["کلچ کے اوپر ہلکا سا رکھیں", "پیچھے فرش پر رکھیں", "بریک کے اوپر رکھیں"], correct: 1, audio: "voices/q12.m4a", img: "images/l1bq12.jpg", timings: { qEnd: 4.5, o1End: 7, o2End: 9.5 } }
         ]
+        /* ADD OTHER LEVELS HERE LIKE L1C: [...], L2A: [...] */
     };
 
-    // MEDIA PRELOADING SYSTEM (Paths updated)
+    // MEDIA PRELOADING SYSTEM
     const filesToPreload = [
-        'Assets/1000372168.png', 'Assets/1_seat.gif', 'Assets/2_clutch.gif', 'Assets/3_neutral.gif', 'Assets/4_1st-gear.gif', 
-        'Assets/1_tires.gif', 'Assets/2_h-brake.gif', 'Assets/3_sideglass.gif', 'Assets/4_Indicator.gif', 'Assets/Switch.png', 
-        'Assets/key.png', 'Assets/dashboard.jpg', 'Icons/starting.jpg', 'Icons/moving.jpg', 'Icons/steering.jpg', 'Icons/stopping.jpg',
-        'Icons/p.formula.jpg', 'Icons/b.control.jpg', 'Icons/r.turn.jpg', 'Icons/2nd.gear.jpg', 'Icons/gear.formula.jpg', 
-        'Icons/f.cutting.jpg', 'Icons/3rd.gear.jpg', 'Icons/gear.motion.jpg', 'Icons/4th.gear.jpg', 'Icons/overtake.jpg', 
-        'Icons/uphill.jpg', 'Icons/l.test.jpg', 'Icons/r.signs.jpg', 'Icons/t.rules.jpg', 'Assets/certificate.jpg'
+        'images/1000372168.png', 'gifs/1_seat.gif', 'gifs/2_clutch.gif', 'gifs/3_neutral.gif', 'gifs/4_1st-gair.gif', 
+        'gifs/1_tires.gif', 'gifs/2_h-brake.gif', 'gifs/3_sideglass.gif', 'gifs/4_Indicator.gif', 'images/Switch.png', 
+        'images/key.png', 'images/dashboard.jpg', 'images/starting.jpg', 'images/moving.jpg', 'images/steering.jpg', 'images/stopping.jpg',
+        'images/p.formula.jpg', 'images/b.control.jpg', 'images/r.turn.jpg', 'images/2nd.gair.jpg', 'images/gair.formula.jpg', 
+        'images/f.cutting.jpg', 'images/3rd.gair.jpg', 'images/gair.motion.jpg', 'images/4th.gair.jpg', 'images/overtake.jpg', 
+        'images/uphill.jpg', 'images/l.test.jpg', 'images/r.signs.jpg', 'images/t.rules.jpg', 'images/certificate.jpg'
     ];
 
     let loadedCount = 0;
@@ -437,18 +438,15 @@
     }
 
     function updateLoaderUI(pct) {
-        const fill = document.getElementById('loader-fill');
-        const car = document.getElementById('loader-car');
-        if(fill) fill.style.width = pct + '%';
-        if(car) car.style.left = `calc(${pct}% - 35px)`;
+        document.getElementById('loader-fill').style.width = pct + '%';
+        document.getElementById('loader-car').style.left = `calc(${pct}% - 35px)`;
     }
 
     function finishPreloading() {
         preloaderFinished = true;
         updateLoaderUI(100);
         setTimeout(() => {
-            const preloader = document.getElementById('app-preloader');
-            if(preloader) preloader.classList.add('loader-hidden');
+            document.getElementById('app-preloader').classList.add('loader-hidden');
         }, 800);
     }
 
@@ -516,21 +514,20 @@
         document.getElementById('cert-user-id').innerText = id;
         document.getElementById('certificate-modal').style.display = 'block';
         confetti({particleCount: 450, spread: 150, origin: {y: 0.5}, colors:['#FFD700', '#FFA500', '#FFFFFF']});
-        const snd = document.getElementById('victorySnd');
-        if(snd) snd.play();
+        document.getElementById('victorySnd').play();
     }
     async function downloadCert() {
         const certElement = document.getElementById('cert-to-capture');
         const canvas = await html2canvas(certElement, { scale: 2 });
         const link = document.createElement('a');
         link.download = 'Aaspass_Certificate_' + (localStorage.getItem('driver_name') || 'Student') + '.png';
-        link.href = canvas.toDataURL('image/png');
+        link.href = canvas.toToDataURL('image/png');
         link.click();
     }
 
     let puzzle1Passed=false,puzzle2Passed=false, coursesPassedCount=0;
     const groupNames={'L1':'Beginner starter','L2':'Control master','L3':'Turn expert','L4':'Smooth driver','L5':'Road performer','L6':'Pro controller','L7':'Smart driver'};
-    let bannerIdx=0;setInterval(()=>{const b=document.getElementById('bannerSlider'); if(b) { bannerIdx=(bannerIdx+1)%3; b.style.transform=`translateX(-${(bannerIdx*100)/3}%)` }},2000);
+    let bannerIdx=0;setInterval(()=>{bannerIdx=(bannerIdx+1)%3;const b=document.getElementById('bannerSlider'); if(b) b.style.transform=`translateX(-${(bannerIdx*100)/3}%)`},2000);
     
     function showLevels(){document.getElementById('dashboard-page').style.display='none';document.getElementById('levels-page').style.display='block';updateGlobalProgress();start3D();playVideo(levelVideoLinks['L1A'])}
     function hideLevels(){const vp=document.getElementById('vPlayer');vp.pause();vp.src="";vp.style.display='none';document.getElementById('vMsg').style.display='block';document.getElementById('levels-page').style.display='none';document.getElementById('dashboard-page').style.display='flex'}
@@ -551,16 +548,15 @@
         openPuzzle1();
     }
     function getLevelIDByVideo(src){const match = levelData.find(l => l.v === src); return match ? match.id : null;}
-    function playSelectedVideo(){const vp=document.getElementById('vPlayer');if(vp.paused&&vp.src)vp.play();else{const sc=document.getElementById('scroller'); if(!sc) return; const idx=Math.round(sc.scrollTop/70),l=levelData[idx];if(l&&!l.lock)playVideo(l.v);else if(l&&l.lock)speakUrdu2("Pehle pichla level pass karein.")}}
-    function updateGlobalProgress(){ let p = coursesPassedCount * 5.5555; if(p > 100) p = 100; const fill=document.getElementById('progressFill'); const txt=document.getElementById('progressText'); if(fill) fill.style.width=p+'%'; if(txt) txt.innerText=Math.floor(p)+'%'; }
+    function playSelectedVideo(){const vp=document.getElementById('vPlayer');if(vp.paused&&vp.src)vp.play();else{const idx=Math.round(document.getElementById('scroller').scrollTop/70),l=levelData[idx];if(l&&!l.lock)playVideo(l.v);else if(l&&l.lock)speakUrdu2("Pehle pichla level pass karein.")}}
+    function updateGlobalProgress(){ let p = coursesPassedCount * 5.5555; if(p > 100) p = 100; document.getElementById('progressFill').style.width=p+'%'; document.getElementById('progressText').innerText=Math.floor(p)+'%'; }
     function openPuzzle1(){document.getElementById('vPlayer').pause();document.getElementById('puzzle-container').style.display='block'}
     function closePuzzle1(){document.getElementById('puzzle-container').style.display='none';updateGlobalProgress(); const vp=document.getElementById('vPlayer'); if(vp.src) vp.play();}
     function openPuzzle2(){document.getElementById('puzzle-container').style.display='none';document.getElementById('puzzle-2-container').style.display='block'; showPuzzle2Guide(); speakUrdu2("Sab se pehle seat par click karein، is tarah"); }
     function closePuzzle2(){document.getElementById('puzzle-2-container').style.display='none';updateGlobalProgress(); const vp=document.getElementById('vPlayer'); if(vp.src) vp.play();}
     
     function showPuzzle1Guide(){
-        const hand = document.getElementById('guideHandP1'); if(!hand) return;
-        hand.style.display = 'block';
+        const hand = document.getElementById('guideHandP1'); hand.style.display = 'block';
         setTimeout(() => {
             const startItem = document.getElementById('p1-item-b1'); const targetSlot = document.getElementById('p1-slot-0');
             if(!startItem || !targetSlot) return;
@@ -572,8 +568,7 @@
     }
 
     function showPuzzle2Guide(){
-        const hand = document.getElementById('guideHandP2'); if(!hand) return;
-        hand.style.display = 'block';
+        const hand = document.getElementById('guideHandP2'); hand.style.display = 'block';
         setTimeout(() => {
             const hotspot = document.getElementById('hp-0'); const box = document.getElementById('p2-box-0');
             if(!hotspot || !box) return;
@@ -621,17 +616,17 @@
         });
     }
     function stopAllVoicesQ() { if(currentAudioQ) { currentAudioQ.pause(); currentAudioQ.currentTime = 0; } }
-    function startTimerQ() { clearInterval(timerIdQ); timerIdQ = setInterval(() => { timeLeftQ--; document.getElementById('timer-display-q').innerText = timeLeftQ; if(timeLeftQ <= 0) { clearInterval(timerIdQ); const fail = document.getElementById('sndFail'); if(fail) fail.play(); showResultCardQ("وقت ختم!", "ٹائم ختم ہو گیا، دوبارہ کوشش کریں", "❌", false); } }, 1000); }
+    function startTimerQ() { clearInterval(timerIdQ); timerIdQ = setInterval(() => { timeLeftQ--; document.getElementById('timer-display-q').innerText = timeLeftQ; if(timeLeftQ <= 0) { clearInterval(timerIdQ); document.getElementById('sndFail').play(); showResultCardQ("وقت ختم!", "ٹائم ختم ہو گیا، دوبارہ کوشش کریں", "❌", false); } }, 1000); }
     function checkAnswerQ(qIdx, selectedIdx, btn) {
         const card = document.getElementById(`q-card-q-${qIdx}`); if(card.classList.contains('answered')) return;
         card.classList.add('answered'); answeredCountQ++; stopAllVoicesQ(); document.querySelectorAll('.blink-active').forEach(el => el.classList.remove('blink-active'));
         if(selectedIdx === activeQuestions[qIdx].correct) {
-            btn.classList.add('correct'); const corr = document.getElementById('sound-correct'); if(corr) corr.play(); correctScoreQ++; updateStatsQ();
+            btn.classList.add('correct'); document.getElementById('sound-correct').play(); correctScoreQ++; updateStatsQ();
             if(answeredCountQ === activeQuestions.length) { 
-                if(isTimerModeQ) { clearInterval(timerIdQ); confetti({particleCount: 350, spread: 120, origin: {y: 0.5}}); const vic = document.getElementById('victorySnd'); if(vic) vic.play(); showResultCardQ("لیول مکمل! 🎖️", `Mubarak ho! App ne ${activeLevelID} pass kar lia.`, "🌟", true, true); } 
-                else { confetti({particleCount: 250, spread: 80, origin: {y: 0.6}}); const win = document.getElementById('sndWin'); if(win) win.play(); showResultCardQ("شاندار! 🎉", "Aap ne sary sawal thek kye! Ab Timer Challenge start krain.", "🏆", true, false); }
+                if(isTimerModeQ) { clearInterval(timerIdQ); confetti({particleCount: 350, spread: 120, origin: {y: 0.5}}); document.getElementById('victorySnd').play(); showResultCardQ("لیول مکمل! 🎖️", `Mubarak ho! App ne ${activeLevelID} pass kar lia.`, "🌟", true, true); } 
+                else { confetti({particleCount: 250, spread: 80, origin: {y: 0.6}}); document.getElementById('sndWin').play(); showResultCardQ("شاندار! 🎉", "Aap ne sary sawal thek kye! Ab Timer Challenge start krain.", "🏆", true, false); }
             } else { setTimeout(() => { const next = document.getElementById(`q-card-q-${qIdx+1}`); if(next) { next.scrollIntoView({behavior:'smooth', block:'center'}); playQuestionAudioQ(qIdx+1); } }, 600); }
-        } else { btn.classList.add('wrong'); const wrng = document.getElementById('sound-wrong'); if(wrng) wrng.play(); if(isTimerModeQ) { clearInterval(timerIdQ); setTimeout(() => { initQuizLogic(); }, 800); } else { setTimeout(() => showResultCardQ("غلط جواب!", "Ghalti insan se hoti hai! Phir se koshish krain.", "❌", false), 800); } }
+        } else { btn.classList.add('wrong'); document.getElementById('sound-wrong').play(); if(isTimerModeQ) { clearInterval(timerIdQ); setTimeout(() => { initQuizLogic(); }, 800); } else { setTimeout(() => showResultCardQ("غلط جواب!", "Ghalti insan se hoti hai! Phir se koshish krain.", "❌", false), 800); } }
     }
     function showResultCardQ(title, msg, icon, success, timerFin = false) {
         document.getElementById('result-card-q').style.display = 'block'; document.getElementById('celeb-title-q').innerText = title;
@@ -650,7 +645,7 @@
             levelData[currentIdx].passed = true; coursesPassedCount += 1;
             if(levelData[currentIdx+1]) { 
                 levelData[currentIdx+1].lock = false; 
-                confetti({particleCount: 350, spread: 100, origin: {y: 0.5}}); const vic = document.getElementById('victorySnd'); if(vic) vic.play();
+                confetti({particleCount: 350, spread: 100, origin: {y: 0.5}}); document.getElementById('victorySnd').play();
                 playVideo(levelData[currentIdx+1].v); scrollToLevel(currentIdx + 1); 
             }
         }
@@ -659,66 +654,67 @@
     function scrollToLevel(idx) { const sc = document.getElementById('scroller'); if(sc) sc.scrollTo({top: idx * 70, behavior: 'smooth'}); }
 
     const levelData=[
-        {id:'L1A',n:'Starting',g:'L1',img:'Icons/starting.jpg',v:levelVideoLinks['L1A'],lock:!1,passed:!1},
-        {id:'L1B',n:'Moving',g:'L1',img:'Icons/moving.jpg',v:levelVideoLinks['L1B'],lock:!0,passed:!1},
-        {id:'L1C',n:'Steering',g:'L1',img:'Icons/steering.jpg',v:levelVideoLinks['L1C'],lock:!0,passed:!1},
-        {id:'L1D',n:'Stopping',g:'L1',img:'Icons/stopping.jpg',v:levelVideoLinks['L1D'],lock:!0,passed:!1},
-        {id:'L2A',n:'Power Formula',g:'L2',img:'Icons/p.formula.jpg',v:levelVideoLinks['L2A'],lock:!0,passed:!1},
-        {id:'L2B',n:'Basic Control',g:'L2',img:'Icons/b.control.jpg',v:levelVideoLinks['L2B'],lock:!0,passed:!1},
-        {id:'L2C',n:'Reverse Turn',g:'L2',img:'Icons/r.turn.jpg',v:levelVideoLinks['L2C'],lock:!0,passed:!1},
-        {id:'L3A',n:'2nd Gear',g:'L3',img:'Icons/2nd.gear.jpg',v:levelVideoLinks['L3A'],lock:!0,passed:!1},
-        {id:'L3B',n:'Gear Formula',g:'L3',img:'Icons/gear.formula.jpg',v:levelVideoLinks['L3B'],lock:!0,passed:!1},
-        {id:'L3C',n:'Full Turning',g:'L3',img:'Icons/f.cutting.jpg',v:levelVideoLinks['L3C'],lock:!0,passed:!1},
-        {id:'L4A',n:'3rd Gear',g:'L4',img:'Icons/3rd.gear.jpg',v:levelVideoLinks['L4A'],lock:!0,passed:!1},
-        {id:'L4B',n:'Gear Motion',g:'L4',img:'Icons/gear.motion.jpg',v:levelVideoLinks['L4B'],lock:!0,passed:!1},
-        {id:'L5A',n:'4th Gear',g:'L5',img:'Icons/4th.gear.jpg',v:levelVideoLinks['L5A'],lock:!0,passed:!1},
-        {id:'L5B',n:'Overtaking',g:'L5',img:'Icons/overtake.jpg',v:levelVideoLinks['L5B'],lock:!0,passed:!1},
-        {id:'L6A',n:'Uphill Drive',g:'L6',img:'Icons/uphill.jpg',v:levelVideoLinks['L6A'],lock:!0,passed:!1},
-        {id:'L6B',n:'L Parking',g:'L6',img:'Icons/l.test.jpg',v:levelVideoLinks['L6B'],lock:!0,passed:!1},
-        {id:'L7A',n:'Road Signs',g:'L7',img:'Icons/r.signs.jpg',v:levelVideoLinks['L7A'],lock:!0,passed:!1},
-        {id:'L7B',n:'Traffic Rules',g:'L7',img:'Icons/t.rules.jpg',v:levelVideoLinks['L7B'],lock:!0,passed:!1}
+        {id:'L1A',n:'Starting',g:'L1',img:'images/starting.jpg',v:levelVideoLinks['L1A'],lock:!1,passed:!1},
+        {id:'L1B',n:'Moving',g:'L1',img:'images/moving.jpg',v:levelVideoLinks['L1B'],lock:!0,passed:!1},
+        {id:'L1C',n:'Steering',g:'L1',img:'images/steering.jpg',v:levelVideoLinks['L1C'],lock:!0,passed:!1},
+        {id:'L1D',n:'Stopping',g:'L1',img:'images/stopping.jpg',v:levelVideoLinks['L1D'],lock:!0,passed:!1},
+        {id:'L2A',n:'Power Formula',g:'L2',img:'images/p.formula.jpg',v:levelVideoLinks['L2A'],lock:!0,passed:!1},
+        {id:'L2B',n:'Basic Control',g:'L2',img:'images/b.control.jpg',v:levelVideoLinks['L2B'],lock:!0,passed:!1},
+        {id:'L2C',n:'Reverse Turn',g:'L2',img:'images/r.turn.jpg',v:levelVideoLinks['L2C'],lock:!0,passed:!1},
+        {id:'L3A',n:'2nd Gear',g:'L3',img:'images/2nd.gair.jpg',v:levelVideoLinks['L3A'],lock:!0,passed:!1},
+        {id:'L3B',n:'Gear Formula',g:'L3',img:'images/gair.formula.jpg',v:levelVideoLinks['L3B'],lock:!0,passed:!1},
+        {id:'L3C',n:'Full Turning',g:'L3',img:'images/f.cutting.jpg',v:levelVideoLinks['L3C'],lock:!0,passed:!1},
+        {id:'L4A',n:'3rd Gear',g:'L4',img:'images/3rd.gair.jpg',v:levelVideoLinks['L4A'],lock:!0,passed:!1},
+        {id:'L4B',n:'Gair Motion',g:'L4',img:'images/gair.motion.jpg',v:levelVideoLinks['L4B'],lock:!0,passed:!1},
+        {id:'L5A',n:'4th Gear',g:'L5',img:'images/4th.gair.jpg',v:levelVideoLinks['L5A'],lock:!0,passed:!1},
+        {id:'L5B',n:'Overtaking',g:'L5',img:'images/overtake.jpg',v:levelVideoLinks['L5B'],lock:!0,passed:!1},
+        {id:'L6A',n:'Uphill Drive',g:'L6',img:'images/uphill.jpg',v:levelVideoLinks['L6A'],lock:!0,passed:!1},
+        {id:'L6B',n:'L Parking',g:'L6',img:'images/l.test.jpg',v:levelVideoLinks['L6B'],lock:!0,passed:!1},
+        {id:'L7A',n:'Road Signs',g:'L7',img:'images/r.signs.jpg',v:levelVideoLinks['L7A'],lock:!0,passed:!1},
+        {id:'L7B',n:'Road signs 2',g:'L7',img:'images/t.rules.jpg',v:levelVideoLinks['L7B'],lock:!0,passed:!1}
     ];
     
     function renderCards(){
-        const w=document.getElementById('wheel'),s=document.getElementById('snaps'); if(!w || !s) return;
-        w.innerHTML=""; s.innerHTML="";
+        const w=document.getElementById('wheel'),s=document.getElementById('snaps'); w.innerHTML=""; s.innerHTML="";
         levelData.forEach((l, idx)=>{
             const c=document.createElement('div'); c.className=`card ${l.g} ${l.lock?'is-locked':''} ${l.passed?'is-passed':''}`;
-            c.innerHTML=`<img src="${l.img}" onerror="this.src='Icons/level.icons.jpg'"><h4>${l.id}: <span>${l.n}</span></h4><div class="lock-icon">${l.passed?'✔':(l.lock?'🔒':'▶')}</div>`;
+            c.innerHTML=`<img src="${l.img}" onerror="this.src='images/level.icons.jpg'"><h4>${l.id}: <span>${l.n}</span></h4><div class="lock-icon">${l.passed?'✔':(l.lock?'🔒':'▶')}</div>`;
             w.appendChild(c); const sn=document.createElement('div'); sn.className='snap';
             sn.onclick=()=>{if(!l.lock && !l.passed)playVideo(l.v);else if(l.passed)speakUrdu2("Passed");else speakUrdu2("Locked")}; s.appendChild(sn);
         });
     }
     renderCards();
     let lastSnapIdx = -1;
-    function start3D(){const sc=document.getElementById('scroller'),sh=70,ra=250;function up(){const lv=document.getElementById('levels-page'); if(!lv || lv.style.display==='none')return;const sp=sc.scrollTop/sh,idx=Math.round(sp);if(idx !== lastSnapIdx){const tick = document.getElementById('wheelTick'); if(tick) { tick.currentTime = 0; tick.play(); } lastSnapIdx = idx;}const title = document.getElementById('levelTitleDisplay'); if(levelData[idx] && title) title.innerText=groupNames[levelData[idx].g];document.querySelectorAll('.card').forEach((c,i)=>{const d=i-sp,a=d*18,y=Math.sin(a*Math.PI/180)*ra,z=(Math.cos(a*Math.PI/180)*ra)-ra;c.style.transform=`translate3d(-50%,${y}px,${z}px) rotateX(${-a}deg)`;c.style.opacity=Math.max(0,1-Math.abs(d)*.45)});requestAnimationFrame(up)}up()}
+    function start3D(){const sc=document.getElementById('scroller'),sh=70,ra=250;function up(){if(document.getElementById('levels-page').style.display==='none')return;const sp=sc.scrollTop/sh,idx=Math.round(sp);if(idx !== lastSnapIdx){document.getElementById('wheelTick').currentTime = 0;document.getElementById('wheelTick').play();lastSnapIdx = idx;}if(levelData[idx])document.getElementById('levelTitleDisplay').innerText=groupNames[levelData[idx].g];document.querySelectorAll('.card').forEach((c,i)=>{const d=i-sp,a=d*18,y=Math.sin(a*Math.PI/180)*ra,z=(Math.cos(a*Math.PI/180)*ra)-ra;c.style.transform=`translate3d(-50%,${y}px,${z}px) rotateX(${-a}deg)`;c.style.opacity=Math.max(0,1-Math.abs(d)*.45)});requestAnimationFrame(up)}up()}
     function speakUrdu2(t){window.speechSynthesis.cancel();let m=new SpeechSynthesisUtterance(t);m.lang='hi-IN';window.speechSynthesis.speak(m)}
-    function mainSystem(){return{gamePhase1:1,ready1:!1,currentMode1:'before',slots1:[],isCranking1:!1,keyStuck1:!1,config1:{before:{items:[{id:'b1',url:'Assets/1_seat.gif',msg:'سیٹ برابر'},{id:'b2',url:'Assets/2_clutch.gif',msg:'کلچ دبا دیا'},{id:'b3',url:'Assets/3_neutral.gif',msg:'گئیر نیوٹرل'},{id:'b4',url:'Assets/4_1st-gear.gif',msg:'پہلا گئیر'}],order:['b1','b2','b3','b4']},after:{items:[{id:'a1',url:'Assets/1_tires.gif',msg:'ٹائر برابر'},{id:'a2',url:'Assets/2_h-brake.gif',msg:'ہینڈ بریک نیچے'},{id:'a3',url:'Assets/3_sideglass.gif',msg:'شیشے برابر'},{id:'a4',url:'Assets/4_Indicator.gif',msg:'اشارہ لگا دیا'}],order:['a1','a2','a3','a4']}},shuffledItems1:[],seconds2:60,placed2:Array(8).fill(null),showError2:null,items2:[],active2:null,isStarted2:!1,gameFinished2:!1,currentStep2:0,rawItems2:[{id:0,url:'Assets/1_seat.gif'},{id:1,url:'Assets/2_clutch.gif'},{id:2,url:'Assets/3_neutral.gif'},{id:3,url:'Assets/4_1st-gear.gif'},{id:4,url:'Assets/1_tires.gif'},{id:5,url:'Assets/2_h-brake.gif'},{id:6,url:'Assets/3_sideglass.gif'},{id:7,url:'Assets/4_Indicator.gif'}],lessonStep2:0,gameWon2:!1,engineOn2:!1,statusMsg2:"TAP TO START",boxContent2:Array(8).fill(null),errorInBox2:Array(8).fill(!1),actions2:{0:{gif:'Assets/1_seat.gif',voice:'Seat'},1:{gif:'Assets/2_clutch.gif',voice:'Clutch'},2:{gif:'Assets/3_neutral.gif',voice:'Neutral'},3:{gif:'Assets/4_1st-gear.gif',voice:'First Gear'},5:{gif:'Assets/1_tires.gif',voice:'Tires'},6:{gif:'Assets/2_h-brake.gif',voice:'Handbrake'},7:{gif:'Assets/3_sideglass.gif',voice:'Side Glass'},8:{gif:'Assets/4_Indicator.gif',voice:'Ishara'}},initApp(){this.shuffleItems1();this.initGame2();window.addEventListener('reset-puzzle-flags', () => { this.gameFinished2 = false; this.gameWon2 = false; this.resetGame(); this.resetOnlyPhase2(); this.gamePhase1 = 1; this.ready1 = false; this.currentMode1 = 'before'; this.keyStuck1 = false; this.isCranking1 = false; this.shuffleItems1(); });},speak(t){window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='ur-PK';window.speechSynthesis.speak(u)},shuffleItems1(){let m=this.currentMode1==='before'?this.config1.before:this.config1.after;this.slots1=Array.from({length:4},()=>({img:null,id:null,isCorrect:!1}));this.shuffledItems1=m.items.map(i=>({...i,used:!1,lastDropCorrect:!0})).sort(()=>Math.random()-0.5)},startDrag1(e,i){this.activeItem1=i;e.currentTarget.classList.add('dragging')},moveDrag1(e){if(!this.activeItem1)return;let el=document.querySelector('.dragging'),t=e.touches[0];if(el){el.style.left=(t.clientX-80)+'px';el.style.top=(t.clientY-80)+'px'}},endDrag1(e){if(!this.activeItem1)return;let t=e.changedTouches[0],m=this.currentMode1==='before'?this.config1.before:this.config1.after,drop=!1,id=this.currentMode1==='before'?'screen-before':'screen-after';const scBox = document.getElementById(id); if(scBox) { scBox.querySelectorAll('.target-box').forEach((z,i)=>{let r=z.getBoundingClientRect();if(t.clientX>r.left&&t.clientX<r.right&&t.clientY>r.top&&t.clientY<r.bottom){if(i>0&&!this.slots1[i-1].img){this.speak("Pehle pichla");return}if(!this.slots1[i].img){if(this.activeItem1.id===m.order[i]){this.slots1[i].img=this.activeItem1.url;this.slots1[i].isCorrect=!0;this.activeItem1.used=!0;const ps=document.getElementById('passSnd'); if(ps){ps.currentTime = 0; ps.play();}this.speak(this.activeItem1.msg);drop=!0}else{const fail = document.getElementById('sndFail'); if(fail) fail.play();this.shuffleItems1();drop=!0}}}}); }document.querySelectorAll('.dragging').forEach(el=>{el.classList.remove('dragging');el.style.left=el.style.top=''});this.activeItem1=null;if(drop)this.checkProgress1()},checkProgress1(){if(this.slots1.filter(s=>s.img).length===4)setTimeout(()=>{const win = document.getElementById('sndWin'); if(win) win.play();if(this.currentMode1==='before')this.currentMode1='ignition';else{this.gamePhase1=2;this.startTimer2()}},600)},startDragKey1(e){e.currentTarget.classList.add('dragging')},moveDragKey1(e){let el=document.querySelector('.dragging'),t=e.touches[0];if(el){el.style.left=(t.clientX-65)+'px';el.style.top=(t.clientY-65)+'px'}},endDragKey1(e){let t=e.changedTouches[0],rBox=document.getElementById('dropZoneIgnition'); if(!rBox) return; let r=rBox.getBoundingClientRect();if(t.clientX>r.left&&t.clientX<r.right&&t.clientY>r.top&&t.clientY<r.bottom){this.keyStuck1=!0;this.isCranking1=!0;const st = document.getElementById('carStartSnd'); if(st) st.play();setTimeout(()=>{this.isCranking1=!1;this.currentMode1='after';this.shuffleItems1()},2500)}document.querySelectorAll('.dragging').forEach(el=>{el.classList.remove('dragging');el.style.left=el.style.top=''})},initGame2(){this.items2=this.rawItems2.map((i,idx)=>({...i,done:!1})).sort(()=>Math.random()-0.5);this.placed2=Array(8).fill(null);this.currentStep2=0;this.isStarted2=!1;this.gameFinished2=!1;this.seconds2=60;},startTimer2(){this.initGame2(); let t=setInterval(()=>{if(this.gamePhase1===2&&this.seconds2>0&&!this.gameFinished2)this.seconds2--;else if(this.gamePhase1===2&&this.seconds2<=0){clearInterval(t);this.initGame2();}},1000)},pick2(e,i){this.active2=i;const dr = document.getElementById('dragSnd'); if(dr) dr.play();let el=e.target;el.classList.add('dragging');},move2(e){if(!this.active2)return;e.preventDefault();let t=e.touches[0],el=e.target;el.style.left=(t.clientX-45)+'px';el.style.top=(t.clientY-45)+'px'},drop2(e){if(!this.active2)return;let t=e.changedTouches[0],h=!1;for(let i=0;i<8;i++){const b=document.getElementById('b-'+i); if(!b) continue; let r=b.getBoundingClientRect();if(t.clientX>r.left&&t.clientX<r.right&&t.clientY>r.top&&t.clientY<r.bottom){if(this.active2!=='key'&&this.active2.id===i&&i===this.currentStep2){this.placed2[i]=this.active2.url;this.active2.done=!0;this.currentStep2++;const ps = document.getElementById('passSnd'); if(ps) {ps.currentTime = 0; ps.play();}h=!0;if(i===3)this.currentStep2=99}else if(this.active2!=='key'){this.showError2=i;const fail = document.getElementById('failSnd'); if(fail) fail.play();setTimeout(()=>{this.showError2=null;this.initGame2()},800);h=!0}}}if(this.active2==='key'){const lt = document.getElementById('lock-target'); const be = document.getElementById('b-engine'); if(!lt || !be) return; let r=lt.getBoundingClientRect();let r2=be.getBoundingClientRect();if((t.clientX>r.left&&t.clientX<r.right&&t.clientY>r.top&&t.clientY<r.bottom) || (t.clientX>r2.left&&t.clientX<r2.right&&t.clientY>r2.top&&t.clientY<r2.bottom)){if(this.currentStep2===99){this.isStarted2=!0;this.currentStep2=4;const es = document.getElementById('engineSnd'); if(es) es.play();h=!0}else{const fail = document.getElementById('failSnd'); if(fail) fail.play();setTimeout(()=>this.initGame2(),800);h=!0}}}e.target.classList.remove('dragging');e.target.style.left=e.target.style.top='';this.active2=null;if(this.placed2.every(p=>p)&&this.isStarted2){ confetti({particleCount: 200, spread: 70}); const vic = document.getElementById('victorySnd'); if(vic) vic.play(); this.gameFinished2=!0; setTimeout(() => { openPuzzle2(); }, 1500); }},resetGame(){this.initGame2();},finishL1A(){this.completeL1A(); closePuzzle2();},handleAction2(id){
+    function mainSystem(){return{gamePhase1:1,ready1:!1,currentMode1:'before',slots1:[],isCranking1:!1,keyStuck1:!1,config1:{before:{items:[{id:'b1',url:'gifs/1_seat.gif',msg:'سیٹ برابر'},{id:'b2',url:'gifs/2_clutch.gif',msg:'کلچ دبا دیا'},{id:'b3',url:'gifs/3_neutral.gif',msg:'گئیر نیوٹرل'},{id:'b4',url:'gifs/4_1st-gair.gif',msg:'پہلا گئیر'}],order:['b1','b2','b3','b4']},after:{items:[{id:'a1',url:'gifs/1_tires.gif',msg:'ٹائر برابر'},{id:'a2',url:'gifs/2_h-brake.gif',msg:'ہینڈ بریک نیچے'},{id:'a3',url:'gifs/3_sideglass.gif',msg:'شیشے برابر'},{id:'a4',url:'gifs/4_Indicator.gif',msg:'اشارہ لگا دیا'}],order:['a1','a2','a3','a4']}},shuffledItems1:[],seconds2:60,placed2:Array(8).fill(null),showError2:null,items2:[],active2:null,isStarted2:!1,gameFinished2:!1,currentStep2:0,rawItems2:[{id:0,url:'gifs/1_seat.gif'},{id:1,url:'gifs/2_clutch.gif'},{id:2,url:'gifs/3_neutral.gif'},{id:3,url:'gifs/4_1st-gair.gif'},{id:4,url:'gifs/1_tires.gif'},{id:5,url:'gifs/2_h-brake.gif'},{id:6,url:'gifs/3_sideglass.gif'},{id:7,url:'gifs/4_Indicator.gif'}],lessonStep2:0,gameWon2:!1,engineOn2:!1,statusMsg2:"TAP TO START",boxContent2:Array(8).fill(null),errorInBox2:Array(8).fill(!1),actions2:{0:{gif:'gifs/1_seat.gif',voice:'Seat'},1:{gif:'gifs/2_clutch.gif',voice:'Clutch'},2:{gif:'gifs/3_neutral.gif',voice:'Neutral'},3:{gif:'gifs/4_1st-gair.gif',voice:'First Gear'},5:{gif:'gifs/1_tires.gif',voice:'Tires'},6:{gif:'gifs/2_h-brake.gif',voice:'Handbrake'},7:{gif:'gifs/3_sideglass.gif',voice:'Side Glass'},8:{gif:'gifs/4_Indicator.gif',voice:'Ishara'}},initApp(){this.shuffleItems1();this.initGame2();window.addEventListener('reset-puzzle-flags', () => { this.gameFinished2 = false; this.gameWon2 = false; this.resetGame(); this.resetOnlyPhase2(); this.gamePhase1 = 1; this.ready1 = false; this.currentMode1 = 'before'; this.keyStuck1 = false; this.isCranking1 = false; this.shuffleItems1(); });},speak(t){window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='ur-PK';window.speechSynthesis.speak(u)},shuffleItems1(){let m=this.currentMode1==='before'?this.config1.before:this.config1.after;this.slots1=Array.from({length:4},()=>({img:null,id:null,isCorrect:!1}));this.shuffledItems1=m.items.map(i=>({...i,used:!1,lastDropCorrect:!0})).sort(()=>Math.random()-0.5)},startDrag1(e,i){this.activeItem1=i;e.currentTarget.classList.add('dragging')},moveDrag1(e){if(!this.activeItem1)return;let el=document.querySelector('.dragging'),t=e.touches[0];if(el){el.style.left=(t.clientX-80)+'px';el.style.top=(t.clientY-80)+'px'}},endDrag1(e){if(!this.activeItem1)return;let t=e.changedTouches[0],m=this.currentMode1==='before'?this.config1.before:this.config1.after,drop=!1,id=this.currentMode1==='before'?'screen-before':'screen-after';document.getElementById(id).querySelectorAll('.target-box').forEach((z,i)=>{let r=z.getBoundingClientRect();if(t.clientX>r.left&&t.clientX<r.right&&t.clientY>r.top&&t.clientY<r.bottom){if(i>0&&!this.slots1[i-1].img){this.speak("Pehle pichla");return}if(!this.slots1[i].img){if(this.activeItem1.id===m.order[i]){this.slots1[i].img=this.activeItem1.url;this.slots1[i].isCorrect=!0;this.activeItem1.used=!0;document.getElementById('passSnd').currentTime = 0; document.getElementById('passSnd').play();this.speak(this.activeItem1.msg);drop=!0}else{document.getElementById('sndFail').play();this.shuffleItems1();drop=!0}}}});document.querySelectorAll('.dragging').forEach(el=>{el.classList.remove('dragging');el.style.left=el.style.top=''});this.activeItem1=null;if(drop)this.checkProgress1()},checkProgress1(){if(this.slots1.filter(s=>s.img).length===4)setTimeout(()=>{document.getElementById('sndWin').play();if(this.currentMode1==='before')this.currentMode1='ignition';else{this.gamePhase1=2;this.startTimer2()}},600)},startDragKey1(e){e.currentTarget.classList.add('dragging')},moveDragKey1(e){let el=document.querySelector('.dragging'),t=e.touches[0];if(el){el.style.left=(t.clientX-65)+'px';el.style.top=(t.clientY-65)+'px'}},endDragKey1(e){let t=e.changedTouches[0],r=document.getElementById('dropZoneIgnition').getBoundingClientRect();if(t.clientX>r.left&&t.clientX<r.right&&t.clientY>r.top&&t.clientY<r.bottom){this.keyStuck1=!0;this.isCranking1=!0;document.getElementById('carStartSnd').play();setTimeout(()=>{this.isCranking1=!1;this.currentMode1='after';this.shuffleItems1()},2500)}document.querySelectorAll('.dragging').forEach(el=>{el.classList.remove('dragging');el.style.left=el.style.top=''})},initGame2(){this.items2=this.rawItems2.map((i,idx)=>({...i,done:!1})).sort(()=>Math.random()-0.5);this.placed2=Array(8).fill(null);this.currentStep2=0;this.isStarted2=!1;this.gameFinished2=!1;this.seconds2=60;},startTimer2(){this.initGame2(); let t=setInterval(()=>{if(this.gamePhase1===2&&this.seconds2>0&&!this.gameFinished2)this.seconds2--;else if(this.gamePhase1===2&&this.seconds2<=0){clearInterval(t);this.initGame2();}},1000)},pick2(e,i){this.active2=i;document.getElementById('dragSnd').play();let el=e.target;el.classList.add('dragging');},move2(e){if(!this.active2)return;e.preventDefault();let t=e.touches[0],el=e.target;el.style.left=(t.clientX-45)+'px';el.style.top=(t.clientY-45)+'px'},drop2(e){if(!this.active2)return;let t=e.changedTouches[0],h=!1;for(let i=0;i<8;i++){let r=document.getElementById('b-'+i).getBoundingClientRect();if(t.clientX>r.left&&t.clientX<r.right&&t.clientY>r.top&&t.clientY<r.bottom){if(this.active2!=='key'&&this.active2.id===i&&i===this.currentStep2){this.placed2[i]=this.active2.url;this.active2.done=!0;this.currentStep2++;document.getElementById('passSnd').currentTime = 0; document.getElementById('passSnd').play();h=!0;if(i===3)this.currentStep2=99}else if(this.active2!=='key'){this.showError2=i;document.getElementById('failSnd').play();setTimeout(()=>{this.showError2=null;this.initGame2()},800);h=!0}}}if(this.active2==='key'){let r=document.getElementById('lock-target').getBoundingClientRect();let r2=document.getElementById('b-engine').getBoundingClientRect();if((t.clientX>r.left&&t.clientX<r.right&&t.clientY>r.top&&t.clientY<r.bottom) || (t.clientX>r2.left&&t.clientX<r2.right&&t.clientY>r2.top&&t.clientY<r2.bottom)){if(this.currentStep2===99){this.isStarted2=!0;this.currentStep2=4;document.getElementById('engineSnd').play();h=!0}else{document.getElementById('failSnd').play();setTimeout(()=>this.initGame2(),800);h=!0}}}e.target.classList.remove('dragging');e.target.style.left=e.target.style.top='';this.active2=null;if(this.placed2.every(p=>p)&&this.isStarted2){ confetti({particleCount: 200, spread: 70}); document.getElementById('victorySnd').play(); this.gameFinished2=!0; setTimeout(() => { openPuzzle2(); }, 1500); }},resetGame(){this.initGame2();},finishL1A(){this.completeL1A(); closePuzzle2();},handleAction2(id){
         let targetIdx = this.lessonStep2;
         let expectedAction = -1;
         if(targetIdx < 4) { expectedAction = targetIdx; } 
         else if(targetIdx >= 4) { expectedAction = targetIdx; }
         
+        // Correct Action for Ignition is 4. Tapping the yellow section (handleAction2(4)) or dropping key (handleAction2(4))
         if(id === 4 && targetIdx === 4){
             this.engineOn2 = true;
             this.lessonStep2 = 5;
-            const es = document.getElementById('engineSnd'); if(es) es.play();
-            const ps = document.getElementById('passSnd'); if(ps) ps.play();
+            document.getElementById('engineSnd').play();
+            document.getElementById('passSnd').play();
             return;
         }
 
         if(id === expectedAction){
-            const ps = document.getElementById('passSnd'); if(ps) {ps.currentTime = 0; ps.play();}
+            document.getElementById('passSnd').currentTime = 0;
+            document.getElementById('passSnd').play();
             let displayIdx = targetIdx < 4 ? targetIdx : targetIdx-1;
             this.boxContent2[displayIdx]=this.actions2[id].gif; this.lessonStep2++;
             if(this.lessonStep2 === 9) {
                 confetti({particleCount: 450, spread: 150, origin: {y: 0.5}});
-                const vic = document.getElementById('victorySnd'); if(vic) vic.play();
+                document.getElementById('victorySnd').play();
                 this.gameWon2 = true;
                 puzzle2Passed = true;
             }
         } else { this.triggerLessonFail2(targetIdx < 4 ? targetIdx : targetIdx-1) }
-    },pickP2Key(e){this.isDraggingP2Key=!0;const ds = document.getElementById('dragSnd'); if(ds) ds.play();e.target.classList.add('dragging')},moveP2Key(e){if(!this.isDraggingP2Key)return;let t=e.touches[0],el=document.getElementById('p2-drag-key'); if(!el) return; el.style.left=(t.clientX-40)+'px';el.style.top=(t.clientY-40)+'px'},dropP2Key(e){if(!this.isDraggingP2Key)return;this.isDraggingP2Key=!1;let t=e.changedTouches[0],lt = document.getElementById('p2-lock-target'); if(!lt) return; let r=lt.getBoundingClientRect();if(t.clientX>r.left&&t.clientX<r.right&&t.clientY>r.top&&t.clientY<r.bottom){this.handleAction2(4)}else{const fail = document.getElementById('failSnd'); if(fail) fail.play();this.triggerLessonFail2(3)}let el=document.getElementById('p2-drag-key'); if(el) { el.classList.remove('dragging'); el.style.left=''; el.style.top=''; }},completeL1A(){levelData[0].passed = true; coursesPassedCount += 1; if(levelData[1]) { levelData[1].lock = false; confetti({particleCount: 350, spread: 100}); const vic = document.getElementById('victorySnd'); if(vic) vic.play(); playVideo(levelData[1].v); setTimeout(() => { scrollToLevel(1); }, 500); } renderCards(); updateGlobalProgress();},handleMapClick2(e){if(e.target.id==='mainMap2')this.triggerLessonFail2(this.lessonStep2<4?this.lessonStep2:this.lessonStep2-1)},triggerLessonFail2(idx){if(idx>=0 && idx<8)this.errorInBox2[idx]=!0;const fail = document.getElementById('sndFail'); if(fail) fail.play();const m=document.getElementById('map-container-2'); if(m) { m.classList.add('wrong-hit-2'); setTimeout(()=>m.classList.remove('wrong-hit-2'),400); } setTimeout(()=>{this.lessonStep2=0;this.engineOn2=!1;this.boxContent2=Array(8).fill(null);this.errorInBox2=Array(8).fill(!1)},1400)},resetOnlyPhase2(){this.lessonStep2=0;this.engineOn2=!1;this.boxContent2=Array(8).fill(null);this.errorInBox2=Array(8).fill(!1)}}}
+    },pickP2Key(e){this.isDraggingP2Key=!0;document.getElementById('dragSnd').play();e.target.classList.add('dragging')},moveP2Key(e){if(!this.isDraggingP2Key)return;let t=e.touches[0],el=document.getElementById('p2-drag-key');el.style.left=(t.clientX-40)+'px';el.style.top=(t.clientY-40)+'px'},dropP2Key(e){if(!this.isDraggingP2Key)return;this.isDraggingP2Key=!1;let t=e.changedTouches[0],r=document.getElementById('p2-lock-target').getBoundingClientRect();if(t.clientX>r.left&&t.clientX<r.right&&t.clientY>r.top&&t.clientY<r.bottom){this.handleAction2(4)}else{document.getElementById('failSnd').play();this.triggerLessonFail2(3)}let el=document.getElementById('p2-drag-key');el.classList.remove('dragging');el.style.left='';el.style.top=''},completeL1A(){levelData[0].passed = true; coursesPassedCount += 1; if(levelData[1]) { levelData[1].lock = false; confetti({particleCount: 350, spread: 100}); document.getElementById('victorySnd').play(); playVideo(levelData[1].v); setTimeout(() => { scrollToLevel(1); }, 500); } renderCards(); updateGlobalProgress();},handleMapClick2(e){if(e.target.id==='mainMap2')this.triggerLessonFail2(this.lessonStep2<4?this.lessonStep2:this.lessonStep2-1)},triggerLessonFail2(idx){if(idx>=0 && idx<8)this.errorInBox2[idx]=!0;document.getElementById('sndFail').play();const m=document.getElementById('map-container-2');m.classList.add('wrong-hit-2');setTimeout(()=>m.classList.remove('wrong-hit-2'),400);setTimeout(()=>{this.lessonStep2=0;this.engineOn2=!1;this.boxContent2=Array(8).fill(null);this.errorInBox2=Array(8).fill(!1)},1400)},resetOnlyPhase2(){this.lessonStep2=0;this.engineOn2=!1;this.boxContent2=Array(8).fill(null);this.errorInBox2=Array(8).fill(!1)}}}
 </script>
 </body>
 </html>
